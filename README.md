@@ -1,6 +1,6 @@
 # API Cinématographique
 
-Cette API basique permet de gérer une base de données de films, acteurs et réalisateurs. Elle offre des fonctionnalités CRUD pour les entités mentionnées et permet également de lier des acteurs et réalisateurs à des films.
+Cette API basique en JavaScript permet de gérer une base de données de films, acteurs et réalisateurs. Elle offre des fonctionnalités CRUD pour les entités mentionnées et permet également de lier des acteurs et réalisateurs à des films.
 <br>
 <br>
 A noter : Aucun fichier JSON permettant de compléter la BDD n'est fourni, il faut soit les rentrées manuellement, soit via les routes API (POSTMAN par exemple), ou des fichiers CSV pour remplir les tables de données.
