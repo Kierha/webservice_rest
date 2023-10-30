@@ -3,41 +3,139 @@ const router = express.Router();
 const realisateursController = require("../controllers/realisateursController");
 
 /**
- * Récupère tous les réalisateurs.
- * @route GET /realisateurs
+ * @swagger
+ * components:
+ *   schemas:
+ *     Realisateur:
+ *       type: object
+ *       required:
+ *         - nom
+ *         - prenom
+ *         - date_de_naissance
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: L'identifiant du réalisateur.
+ *         nom:
+ *           type: string
+ *           description: Le nom du réalisateur.
+ *         prenom:
+ *           type: string
+ *           description: Le prénom du réalisateur.
+ *         date_de_naissance:
+ *           type: string
+ *           format: date
+ *           description: La date de naissance du réalisateur.
+ *       example:
+ *         id: 1
+ *         nom: Nolan
+ *         prenom: Christopher
+ *         date_de_naissance: "1970-07-30"
+ */
+
+/**
+ * @swagger
+ * /api/realisateurs:
+ *   get:
+ *     summary: Récupère la liste de tous les réalisateurs.
+ *     tags: [Realisateurs]
+ *     responses:
+ *       200:
+ *         description: La liste des réalisateurs.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Realisateur'
  */
 router.get("/", realisateursController.getAllRealisateurs);
 
 /**
- * Récupère un réalisateur par son ID.
- * @route GET /realisateurs/{id}
- * @param {number} id - L'ID du réalisateur.
+ * @swagger
+ * /api/realisateurs/{id}:
+ *   get:
+ *     summary: Récupère un réalisateur par son ID.
+ *     tags: [Realisateurs]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: L'ID du réalisateur.
+ *     responses:
+ *       200:
+ *         description: Le réalisateur correspondant à l'ID.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Realisateur'
  */
 router.get("/:id", realisateursController.getRealisateurById);
 
 /**
- * Crée un nouveau réalisateur.
- * @route POST /realisateurs
- * @body {string} nom - Le nom du réalisateur.
- * @body {string} prenom - Le prénom du réalisateur.
- * @body {Date|string} date_de_naissance - La date de naissance du réalisateur.
+ * @swagger
+ * /api/realisateurs:
+ *   post:
+ *     summary: Crée un nouveau réalisateur.
+ *     tags: [Realisateurs]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Realisateur'
+ *     responses:
+ *       201:
+ *         description: Le réalisateur a été créé avec succès.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Realisateur'
  */
 router.post("/", realisateursController.createRealisateur);
 
 /**
- * Met à jour un réalisateur par son ID.
- * @route PUT /realisateurs/{id}
- * @param {number} id - L'ID du réalisateur.
- * @body {string} nom - Le nom du réalisateur (facultatif).
- * @body {string} prenom - Le prénom du réalisateur (facultatif).
- * @body {Date|string} date_de_naissance - La date de naissance du réalisateur (facultatif).
+ * @swagger
+ * /api/realisateurs/{id}:
+ *   put:
+ *     summary: Met à jour un réalisateur par son ID.
+ *     tags: [Realisateurs]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: L'ID du réalisateur.
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Realisateur'
+ *     responses:
+ *       200:
+ *         description: Réalisateur mis à jour avec succès.
  */
 router.put("/:id", realisateursController.updateRealisateur);
 
 /**
- * Supprime un réalisateur par son ID.
- * @route DELETE /realisateurs/{id}
- * @param {number} id - L'ID du réalisateur.
+ * @swagger
+ * /api/realisateurs/{id}:
+ *   delete:
+ *     summary: Supprime un réalisateur par son ID.
+ *     tags: [Realisateurs]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: L'ID du réalisateur.
+ *     responses:
+ *       200:
+ *         description: Réalisateur supprimé avec succès.
  */
 router.delete("/:id", realisateursController.deleteRealisateur);
 

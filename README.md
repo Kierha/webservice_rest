@@ -14,13 +14,11 @@ A noter : Aucun fichier JSON permettant de compléter la BDD n'est fourni, il fa
   - [Acteurs](#acteurs)
   - [Films](#films)
   - [Réalisateurs](#réalisateurs)
-- [Documentation](#documentation)
-- [Contribuer au projet](#contribuer-au-projet)
 
 ## Prérequis
 
 - Node.js (v14+ recommandé)
-- Une base de données MariaDB configurée
+- Une BDD MariaDB configurée
 
 ## Installation
 
@@ -56,7 +54,7 @@ Votre serveur sera alors accessible à l'adresse `http://localhost:3000`.
 
 ## Routes
 
-(OpenAPI en cours de création...)
+Votre documentation OpenAPI sera accessible à l'adresse : `http://localhost:3000/api-docs/`.
 
 ### Acteurs
 
