@@ -48,6 +48,8 @@ const filmsController = require("../controllers/filmsController");
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Film'
+ *       404:
+ *         description: Films non trouvés.
  */
 router.get("/", filmsController.getAllFilms);
 
@@ -71,6 +73,8 @@ router.get("/", filmsController.getAllFilms);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Film'
+ *       404:
+ *         description: Film non trouvé.
  */
 router.get("/:id", filmsController.getFilmById);
 
@@ -93,6 +97,8 @@ router.get("/:id", filmsController.getFilmById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Film'
+ *       400:
+ *         description: Mauvaise requête.
  */
 router.post("/", filmsController.createFilm);
 
@@ -123,6 +129,11 @@ router.post("/", filmsController.createFilm);
  *     responses:
  *       200:
  *         description: Acteur lié au film avec succès.
+ *       400:
+ *        description: Mauvaise requête.
+ *       404:
+ *        description: Acteur non trouvé.
+ *
  */
 router.post("/:filmId/acteurs", filmsController.linkActeurToFilm);
 
@@ -153,6 +164,11 @@ router.post("/:filmId/acteurs", filmsController.linkActeurToFilm);
  *     responses:
  *       200:
  *         description: Réalisateur lié au film avec succès.
+ *       400:
+ *        description: Mauvaise requête.
+ *       404:
+ *        description: Réalisateur non trouvé.
+ *
  */
 router.post("/:filmId/realisateurs", filmsController.linkRealisateurToFilm);
 
@@ -170,6 +186,7 @@ router.post("/:filmId/realisateurs", filmsController.linkRealisateurToFilm);
  *         required: true
  *         description: L'ID du film.
  *     requestBody:
+ *       required: true
  *       content:
  *         application/json:
  *           schema:
@@ -177,6 +194,14 @@ router.post("/:filmId/realisateurs", filmsController.linkRealisateurToFilm);
  *     responses:
  *       200:
  *         description: Film mis à jour avec succès.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Film'
+ *       400:
+ *         description: Mauvaise requête.
+ *       404:
+ *         description: Film non trouvé.
  */
 router.put("/:id", filmsController.updateFilm);
 
@@ -196,6 +221,8 @@ router.put("/:id", filmsController.updateFilm);
  *     responses:
  *       200:
  *         description: Film supprimé avec succès.
+ *       404:
+ *         description: Film non trouvé.
  */
 router.delete("/:id", filmsController.deleteFilm);
 

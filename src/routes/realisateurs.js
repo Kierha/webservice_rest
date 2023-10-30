@@ -48,6 +48,8 @@ const realisateursController = require("../controllers/realisateursController");
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Realisateur'
+ *       404:
+ *         description: Realisateurs non trouvés.
  */
 router.get("/", realisateursController.getAllRealisateurs);
 
@@ -71,6 +73,8 @@ router.get("/", realisateursController.getAllRealisateurs);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Realisateur'
+ *       404:
+ *         description: Réalisateur non trouvé.
  */
 router.get("/:id", realisateursController.getRealisateurById);
 
@@ -93,6 +97,8 @@ router.get("/:id", realisateursController.getRealisateurById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Realisateur'
+ *       400:
+ *         description: Mauvaise requête (données manquantes ou erronées).
  */
 router.post("/", realisateursController.createRealisateur);
 
@@ -117,6 +123,10 @@ router.post("/", realisateursController.createRealisateur);
  *     responses:
  *       200:
  *         description: Réalisateur mis à jour avec succès.
+ *       400:
+ *         description: Mauvaise requête (données manquantes ou erronées).
+ *       404:
+ *         description: Réalisateur non trouvé.
  */
 router.put("/:id", realisateursController.updateRealisateur);
 
@@ -136,6 +146,8 @@ router.put("/:id", realisateursController.updateRealisateur);
  *     responses:
  *       200:
  *         description: Réalisateur supprimé avec succès.
+ *       404:
+ *         description: Réalisateur non trouvé.
  */
 router.delete("/:id", realisateursController.deleteRealisateur);
 

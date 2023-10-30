@@ -45,10 +45,11 @@ app.get("/", (req, res) => {
 // Utilisez swagger-ui-express pour servir votre documentation API
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-app.get("/swagger.json", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.send(specs);
-});
+// Permet de tester la documentation Swagger
+// app.get("/swagger.json", (req, res) => {
+//   res.setHeader("Content-Type", "application/json");
+//   res.send(specs);
+// });
 
 // Gestion d'erreur basique
 app.use((err, req, res, next) => {
