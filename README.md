@@ -22,6 +22,8 @@ A noter : Aucun fichier JSON permettant de compléter la BDD n'est fourni, il fa
 
 ## Installation
 
+### Installation mannuel
+
 1. Clonez ce dépôt GitHub :
 
 ```bash
@@ -44,12 +46,16 @@ npm install
    <br>
    <br>
 
-Il est également possible d'installer et d'utiliser l'API via un container Docker, pour cela, il faut build le Dockerfile et lancer le container :
+### Utilisation de Docker Compose
 
-```bash
-docker build -t webservice_rest
-docker run -p 3000:3000 webservice_rest
-```
+Pour installer et lancer l'API dans un environnement conteneurisé avec Docker Compose, suivez ces étapes :
+
+1. Construire et démarrer les services :
+   ```bash
+   docker-compose up --build
+   ```
+
+L'API sera accessible à l'adresse http://localhost:3000.
 
 ## Lancement de l'API
 
