@@ -41,6 +41,15 @@ npm install
 ```
 
 4. Configurez votre base de données `database/connection.js` avec vos informations d'accès (configurez votre fichier .env à la racine du projet).
+   <br>
+   <br>
+
+Il est également possible d'installer et d'utiliser l'API via un container Docker, pour cela, il faut build le Dockerfile et lancer le container :
+
+```bash
+docker build -t webservice_rest
+docker run -p 3000:3000 webservice_rest
+```
 
 ## Lancement de l'API
 
