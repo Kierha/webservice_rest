@@ -50,10 +50,11 @@ npm install
 
 Pour installer et lancer l'API dans un environnement conteneurisé avec Docker Compose, suivez ces étapes :
 
-1. Construire et démarrer les services :
-   ```bash
-   docker-compose up --build
-   ```
+Construire et démarrer les services :
+
+```bash
+docker-compose up --build
+```
 
 L'API sera accessible à l'adresse http://localhost:3000.
 
